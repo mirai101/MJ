@@ -1,0 +1,14 @@
+# Allow search engine robots to crawl
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Specify sitemap
+Sitemap: https://tumolva.vercel.app/sitemap.xml
+
+# Crawl delay (optional - set reasonable delay)
+Crawl-delay: 1
+
+# Tell robots not to archive the page
+Noarchive: true

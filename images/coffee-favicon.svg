@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="cupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coffeeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B3410;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3D1F0A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="200" height="200" fill="#f5f1de"/>
+  
+  <g transform="translate(100, 100)">
+    <!-- Cup body -->
+    <path d="M -40 -20 L -35 40 Q -35 50 -25 50 L 25 50 Q 35 50 35 40 L 40 -20 Z" fill="url(#cupGradient)" stroke="#8B4513" stroke-width="2"/>
+    
+    <!-- Coffee inside -->
+    <path d="M -33 0 L -28 40 Q -28 47 -20 47 L 20 47 Q 28 47 28 40 L 33 0 Z" fill="url(#coffeeGradient)" opacity="0.9"/>
+    
+    <!-- Cup handle -->
+    <path d="M 40 0 Q 70 0 70 20 Q 70 40 40 40" fill="none" stroke="url(#cupGradient)" stroke-width="6" stroke-linecap="round"/>
+    
+    <!-- Steam wisps -->
+    <circle cx="-15" cy="-30" r="4" fill="#8B4513" opacity="0.4"/>
+    <circle cx="0" cy="-40" r="4" fill="#8B4513" opacity="0.5"/>
+    <circle cx="15" cy="-30" r="4" fill="#8B4513" opacity="0.4"/>
+    
+    <!-- Coffee cup emoji style decoration -->
+    <text x="0" y="8" font-size="32" text-anchor="middle" dominant-baseline="middle" fill="#fff9e6" opacity="0.8">☕</text>
+  </g>
+</svg>

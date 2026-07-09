@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    initThemeToggle();
     initSmoothScroll();
     initNavbar();
     initMobileMenu();
@@ -7,11 +8,39 @@ document.addEventListener('DOMContentLoaded', function() {
     initResponsiveAnimations();
     handleOrientationChange();
     initGridInteraction();
+    initMagnifierCursor();
     initBackToTop();
     initProjectFilters();
     initScrollProgress();
     initCopyButtons();
+    initMagneticButtons();
 });
+
+function initMagneticButtons() {
+    if (window.innerWidth <= 768) return;
+
+    const buttons = document.querySelectorAll('.btn, .social-link, .theme-toggle, .copy-btn');
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            if (this.querySelector('i')) {
+                this.querySelector('i').style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            }
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            if (this.querySelector('i')) {
+                this.querySelector('i').style.transform = '';
+            }
+        });
+    });
+}
 
 function initCopyButtons() {
     const copyButtons = document.querySelectorAll('.copy-btn');
@@ -112,8 +141,9 @@ function initThemeToggle() {
         }
     }
 
-    
-    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const savedTheme = localStorage.getItem('theme');
+    const preferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const current = savedTheme || preferredTheme;
     applyTheme(current);
 
     themeToggle.addEventListener('click', function() {
@@ -127,7 +157,6 @@ function initThemeToggle() {
         }
     });
 
-    
     if (window.matchMedia) {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
             if (!localStorage.getItem('theme')) {
@@ -158,42 +187,11 @@ function initBackToTop() {
 }
 
 function initGridInteraction() {
-    const gridAnimation = document.querySelector('.grid-animation');
-    if (!gridAnimation) return;
-
-    let mouseX = 0;
-    let mouseY = 0;
-
     document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        
-        const ripple = document.createElement('div');
-        ripple.style.position = 'fixed';
-        ripple.style.left = mouseX + 'px';
-        ripple.style.top = mouseY + 'px';
-        ripple.style.width = '0';
-        ripple.style.height = '0';
-        ripple.style.borderRadius = '50%';
-        ripple.style.boxShadow = '0 0 0 0 rgba(0, 0, 0, 0.15)';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.zIndex = '1';
-        ripple.style.transform = 'translate(-50%, -50%)';
-
-        gridAnimation.appendChild(ripple);
-
-        
-        let size = 0;
-        const animation = setInterval(() => {
-            size += 2;
-            ripple.style.boxShadow = `0 0 0 ${size}px rgba(0, 0, 0, ${0.15 - size * 0.002})`;
-
-            if (size > 60) {
-                clearInterval(animation);
-                ripple.remove();
-            }
-        }, 30);
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+        document.documentElement.style.setProperty('--mouse-y', `${y}%`);
     });
 }
 
@@ -370,35 +368,34 @@ function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
+    function setMenuState(isOpen) {
+        navLinks.classList.toggle('active', isOpen);
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
     menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+        setMenuState(!navLinks.classList.contains('active'));
     });
 
-    
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
+            setMenuState(false);
         });
     });
 
-    
     document.addEventListener('click', function(event) {
         const isClickInsideNav = navLinks.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
         
         if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
+            setMenuState(false);
         }
     });
 
-    
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
-            navLinks.classList.remove('active');
-            menuToggle.classList.remove('active');
+            setMenuState(false);
         }
     });
 }
@@ -406,22 +403,43 @@ function initMobileMenu() {
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.animation = entry.target.dataset.animation || 'fadeInUp 0.8s ease-out forwards';
-                observer.unobserve(entry.target);
+                const el = entry.target;
+                const animation = el.dataset.animation || 'fadeInUp 1s var(--ease-out-expo) forwards';
+                const delay = el.dataset.delay || '0s';
+                
+                el.style.animation = animation;
+                el.style.animationDelay = delay;
+                
+                observer.unobserve(el);
             }
         });
     }, observerOptions);
 
+    const animatedElements = document.querySelectorAll('.project-card, .skill-category, .expertise-item, .contact-method, .section-title, .about-text p, .hero-content > *');
     
-    document.querySelectorAll('.project-card, .skill-category, .expertise-item, .contact-method').forEach(el => {
+    // Auto-calculate stagger for certain groups
+    const groups = ['.projects-grid', '.skills-grid', '.expertise-list', '.contact-grid'];
+    groups.forEach(groupSelector => {
+        const group = document.querySelector(groupSelector);
+        if (group) {
+            const children = group.children;
+            Array.from(children).forEach((child, index) => {
+                if (!child.dataset.delay) {
+                    child.dataset.delay = `${index * 0.1}s`;
+                }
+            });
+        }
+    });
+
+    animatedElements.forEach(el => {
         el.style.opacity = '0';
+        el.style.willChange = 'transform, opacity';
         observer.observe(el);
     });
 }
@@ -430,27 +448,26 @@ function initNavHighlight() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
+    function updateActiveLink() {
+        let current = 'home';
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             if (window.scrollY >= sectionTop - 200) {
                 current = section.getAttribute('id');
             }
         });
 
         navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
-                link.classList.add('active');
-                link.style.color = 'var(--primary)';
-            } else {
-                link.style.color = 'var(--light)';
-            }
+            const target = link.getAttribute('href').slice(1);
+            const isActive = target === current;
+            link.classList.toggle('active', isActive);
+            link.style.color = isActive ? 'var(--primary)' : 'var(--light)';
         });
-    });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 }
 
 let parallaxEnabled = window.innerWidth > 768;

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    initMagnifierCursor();
     initSmoothScroll();
     initNavbar();
     initMobileMenu();
@@ -8,7 +7,155 @@ document.addEventListener('DOMContentLoaded', function() {
     initResponsiveAnimations();
     handleOrientationChange();
     initGridInteraction();
+    initBackToTop();
+    initProjectFilters();
+    initScrollProgress();
+    initCopyButtons();
 });
+
+function initCopyButtons() {
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    if (!copyButtons.length) return;
+
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const value = this.dataset.copy;
+            const icon = this.querySelector('i');
+
+            function showCopied() {
+                this.classList.add('copied');
+                if (icon) icon.className = 'fas fa-check';
+                setTimeout(() => {
+                    this.classList.remove('copied');
+                    if (icon) icon.className = 'fas fa-copy';
+                }, 1500);
+            }
+            const restoreBound = showCopied.bind(this);
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(value).then(restoreBound).catch(() => {});
+            } else {
+                
+                const textarea = document.createElement('textarea');
+                textarea.value = value;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    restoreBound();
+                } catch (e) {
+                    
+                }
+                document.body.removeChild(textarea);
+            }
+        });
+    });
+}
+
+function initProjectFilters() {
+    const filterBar = document.getElementById('projectFilters');
+    const grid = document.getElementById('projectsGrid');
+    if (!filterBar || !grid) return;
+
+    const buttons = filterBar.querySelectorAll('.filter-btn');
+    const cards = grid.querySelectorAll('.project-card');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+
+            buttons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            cards.forEach(card => {
+                const matches = filter === 'all' || card.dataset.category === filter;
+                card.classList.toggle('hidden', !matches);
+            });
+        });
+    });
+}
+
+function initScrollProgress() {
+    const bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (!themeToggle) return;
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (themeColorMeta) themeColorMeta.setAttribute('content', '#0b0b0c');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (themeColorMeta) themeColorMeta.setAttribute('content', '#1a1a1a');
+        }
+    }
+
+    
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyTheme(current);
+
+    themeToggle.addEventListener('click', function() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const next = isDark ? 'light' : 'dark';
+        applyTheme(next);
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {
+            
+        }
+    });
+
+    
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+}
+
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 function initGridInteraction() {
     const gridAnimation = document.querySelector('.grid-animation');
@@ -112,8 +259,8 @@ function initMagnifierCursor() {
         mouseX += (targetX - mouseX) * speed;
         mouseY += (targetY - mouseY) * speed;
         
-        magnifier.style.left = (mouseX - 25) + 'px';
-        magnifier.style.top = (mouseY - 25) + 'px';
+        magnifier.style.left = (mouseX - 20) + 'px';
+        magnifier.style.top = (mouseY - 20) + 'px';
         
         requestAnimationFrame(updateCursorPosition);
     }
@@ -161,11 +308,15 @@ function initMagnifierCursor() {
         element.addEventListener('mouseenter', function() {
             if (!isTouch) {
                 magnifier.classList.add('hover');
+                if (element.closest('.project-card')) {
+                    magnifier.setAttribute('data-label', 'VIEW');
+                }
             }
         });
         element.addEventListener('mouseleave', function() {
             if (!isTouch) {
                 magnifier.classList.remove('hover');
+                magnifier.removeAttribute('data-label');
             }
         });
     });
@@ -301,14 +452,6 @@ function initNavHighlight() {
         });
     });
 }
-
-document.addEventListener('load', function() {
-    
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        card.style.animation = `fadeInUp 0.8s ease-out ${index * 0.1}s both`;
-    });
-});
 
 let parallaxEnabled = window.innerWidth > 768;
 

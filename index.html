@@ -1,76 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Section: Document Head -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aspiring Software Developer Portfolio. Transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.">
-    <meta name="keywords" content="aspiring software developer, IT student, web development, Java, JavaScript, Python, PHP, portfolio">
+    <meta name="description" content="Full Stack Developer Portfolio. Transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.">
+    <meta name="keywords" content="full stack developer, IT student, web development, Java, JavaScript, Python, PHP, portfolio">
     <meta name="author" content="Mark Jeferson D. Tumolva">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1a1a1a">
     <link rel="canonical" href="https://tumolva.vercel.app">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
-    <title>Mark Jeferson D. Tumolva | Aspiring Software Developer</title>
-
+    <title>Mark Jeferson D. Tumolva | Full Stack Developer</title>
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tumolva.vercel.app">
-    <meta property="og:title" content="Mark Jeferson D. Tumolva | Aspiring Software Developer">
-    <meta property="og:description" content="Aspiring Software Developer. Transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.">
+    <meta property="og:title" content="Mark Jeferson D. Tumolva | Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer. Transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.">
     <meta property="og:image" content="https://raw.githubusercontent.com/mirai101/MJ/main/images/image/pay.jpg">
     <meta property="og:site_name" content="My Portfolio">
     <meta property="og:locale" content="en_US">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/styles.css">
-    <script>
-        (function() {
-            var saved = localStorage.getItem('theme');
-            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            var theme = saved || (prefersDark ? 'dark' : 'light');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        })();
-    </script>
+    <script src="script/early.js"></script>
 </head>
 <body>
+    <!-- Section: Body -->
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="grid-animation"></div>
-
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="https://tumolva.vercel.app" class="logo"><span class="logo-bracket">MJ </span>D.<span class="logo-bracket">Tumolva</span></a>
-            <div class="nav-right">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <!-- Section: Navigation -->
+<header class="site-header">
+        <nav class="navbar" role="navigation" aria-label="Primary navigation">
+            <div class="nav-container">
+                <a href="https://tumolva.vercel.app" class="logo"><span class="logo-bracket">MJ </span>D.<span class="logo-bracket">Tumolva</span></a>
+                <div class="nav-right">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
+        </nav>
+    </header>
+    <main>
+    <!-- Section: Hero -->
+<section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-title">
                 <p class="hero-greeting">Hi, I'm Mark Jeferson D. Tumolva</p>
-                <h1 class="glitch" data-text="Aspiring Software Developer">Software Developer</h1>
+                <h1>Full Stack Developer</h1>
                 <div class="role-tags">
-                    <span class="role-tag dev-tag">Developer</span>
+                    <span class="role-tag dev-tag">Full Stack Developer</span>
+                    <span class="role-tag va-tag">Pentester</span>
+                    <span class="role-tag sec-tag">AI Automation</span>
                 </div>
             </div>
-            <p class="hero-subtitle">I am an software developer with a strong passion for creating efficient, user-focused, and reliable digital solutions. I enjoy transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.</p>
-            
+                <p class="hero-subtitle">I am a full stack developer with a strong track record of creating efficient, user-focused, and reliable digital solutions. I transform ideas into functional applications through clean code, thoughtful design, and continuous delivery.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">
                     <i class="fas fa-code"></i> View Work
@@ -79,50 +75,51 @@
                     <i class="fas fa-envelope"></i> Get In Touch
                 </a>
             </div>
-
             <div class="scroll-indicator">
                 <div class="scroll-wheel"></div>
             </div>
         </div>
     </section>
-
-    <section id="about" class="about">
+    <!-- Section: About -->
+<section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a graduate of the Associate in Computer Technology program, where I built a strong foundation in programming, web development, database management, and computer systems. Throughout my studies,I completed various academic and hands-on projects that strengthened my technical expertise, analytical thinking, and ability to collaborate effectively in team environments.</p>
-                    <p>I am committed to continuous improvement and believe that every project presents an opportunity to learn, innovate, and deliver high-quality results. I am eager to contribute to challenging projects and collaborate with professionals who share a passion for technology and excellence.</p>
-
+                    <p>I am a full stack developer with a solid foundation in programming, web development, database management, and full stack development principles. I have delivered projects that strengthened my technical skills, problem-solving abilities, and collaborative mindset.</p>
+                    <p>I focus on continuous improvement, delivering high-quality results, and collaborating with teams to solve real-world problems. I thrive on building reliable products that balance performance, usability, and security.</p>
                     <div class="expertise-list">
                         <div class="expertise-item">
                             <i class="fas fa-laptop-code"></i>
-                            <h3>Software Development</h3>
+                            <h3>Full Stack Development</h3>
                             <p>Writing clean, maintainable, and scalable code following industry best practices</p>
                         </div>
                         <div class="expertise-item">
-                            <i class="fas fa-bug"></i>
-                            <h3>Penetration Testing</h3>
-                            <p>Identifying vulnerabilities and implementing security best practices</p>
+                            <i class="fas fa-database"></i>
+                            <h3>Database Management</h3>
+                            <p>Designing and integrating secure, efficient database solutions</p>
                         </div>
                         <div class="expertise-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <h3>Problem Solving</h3>
-                            <p>Turning ideas into functional applications through thoughtful design</p>
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Security & Pentesting</h3>
+                            <p>Conducting vulnerability assessments, penetration testing, and secure-hardening recommendations</p>
+                        </div>
+                        <div class="expertise-item">
+                            <i class="fas fa-robot"></i>
+                            <h3>AI Automation</h3>
+                            <p>Designing automation pipelines using AI APIs, Python automation, and lightweight ML models</p>
                         </div>
                     </div>
-
                     <p><strong>Professional Values:</strong> I value integrity, collaboration, accountability, and continuous learning, and I strive to deliver solutions that meet both technical and user requirements.</p>
-                    <p><strong>Career Objective:</strong> My objective is to begin my career as a software developer where I can apply my technical knowledge, expand my expertise through real-world experience, and contribute to innovative projects. I am dedicated to continuous professional growth and delivering meaningful solutions that create lasting value.</p>
+                    <p><strong>Career Objective:</strong> I am focused on contributing to impactful full stack projects, improving system quality, and delivering features that drive business outcomes. I aim to grow as a full stack developer while maintaining a strong commitment to craftsmanship, reliability, and team success.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="skills" class="skills">
+    <!-- Section: Skills -->
+<section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Skills & Technologies</h2>
-            
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programming Languages</h3>
@@ -130,11 +127,9 @@
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Rust</span>
-                        <span class="skill-tag">C++/C/C#</span>
+                        <span class="skill-tag">PHP</span>
                     </div>
                 </div>
-
                 <div class="skill-category">
                     <h3><i class="fas fa-globe"></i> Web Technologies</h3>
                     <div class="skill-tags">
@@ -142,19 +137,15 @@
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">Bootstrap</span>
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
-
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Database</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">MySQL</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">SQL</span>
                     </div>
                 </div>
-
                 <div class="skill-category">
                     <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
                     <div class="skill-tags">
@@ -165,45 +156,37 @@
                         <span class="skill-tag">Canva</span>
                     </div>
                 </div>
-            
                 <div class="skill-category">
-                    <h3><i class="fas fa-bug"></i> Pentesting</h3>
+                    <h3><i class="fas fa-user-secret"></i> Security & Automation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Web Application Security Testing</span>
-                        <span class="skill-tag">Vulnerability Assesment</span>
-                        <span class="skill-tag">Basic Exploitation Techniques</span>
-                        <span class="skill-tag">Network Reconnaissance</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-computer"></i>AI & Automation Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Rest API Integration</span>
-                        <span class="skill-tag">Workflow Automation</span>
-                        <span class="skill-tag">JSON</span>
-                        <span class="skill-tag">Webhooks</span>
+                        <span class="skill-tag">Penetration Testing</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">Nmap</span>
+                        <span class="skill-tag">Burp Suite</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">Python Automation</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">ChatGPT API</span>
+                        <span class="skill-tag">Lightweight ML</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="projects" class="work">
+    <!-- Section: Featured Projects -->
+<section id="projects" class="work">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="project-filters" id="projectFilters" role="tablist" aria-label="Filter projects by category">
                 <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web</button>
+                <button class="filter-btn" data-filter="AI" role="tab" aria-selected="false">Artificial Intelligence</button>
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="pages/coffee.html" class="project-btn" title="Live Demo" aria-label="Live Demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="pages/coffee.html" class="project-btn" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
+                        <img src="images/port.png" alt="Portfolio Website Preview" loading="lazy">
+                        <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
                         <h3>Portfolio Website</h3>
@@ -216,58 +199,79 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card" data-category="full-stack">
+                <div class="project-card" data-category="AI">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="pages/coffee.html" class="project-btn" title="Live Demo" aria-label="Live Demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="pages/coffee.html" class="project-btn" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
+                        <img src="images/ai1.png" alt="AI Automation Toolkit" loading="lazy">
+                        <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
-                        <h3>Your Thoughts</h3>
-                        <p class="project-description">A detailed exploration of the latest trends and best practices in lifestyle, blogging, and content creation.</p>
+                        <h3>Moonblast AI</h3>
+                        <p class="project-description">A set of automation scripts and assistants leveraging LLM APIs and Python to automate repetitive workflows, generate reports, and integrate with web UIs.</p>
                         <div class="project-tags">
-                            <span class="tag">JSON</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">CRUD</span>
-                            <span class="tag">API</span>
-                            <span class="tag">Node.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Fable5</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card" data-category="web">
+                <div class="project-card" data-category="AI">
                     <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="pages/coffee.html" class="project-btn" title="Live Demo" aria-label="Live Demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>
-                                <a href="pages/coffee.html" class="project-btn" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
+                        <img src="images/ai.png" alt="Sunburst" loading="lazy">
+                        <div class="project-overlay"></div>
                     </div>
                     <div class="project-content">
-                        <h3>Orion</h3>
-                        <p class="project-description">A full-stack application for managing customer interactions and relationships.</p>
+                        <h3>Sunburst AI</h3>
+                        <p class="project-description">An AI toolkit combining scanning, reporting, and prioritized remediation suggestions for small web applications, built to speed up penetration testing workflows.</p>
+                        <div class="project-tags">
+                            <span class="tag">Nmap</span>
+                            <span class="tag">OWASP10</span>
+                            <span class="tag">Reporting</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">CLI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/copi.png" alt="Coffee Menu" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Coffee Menu</h3>
+                        <p class="project-description">The application streamlines coffee shop operations by providing an efficient way to manage menu items, customer orders, and inventory through a user-friendly interface.</p>
+                        <div class="project-tags">
+                            <span class="tag">JSON</span>
+                            <span class="tag">REST-API</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/blog.png" alt="Blog Post" loading="lazy">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Your Thoughts</h3>
+                        <p class="project-description">A responsive blog platform designed to enable users to create, publish, edit, and manage articles through an intuitive interface.</p>
                         <div class="project-tags">
                             <span class="tag">JavaScript</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">Express.js</span>
+                            <span class="tag">React</span>
+                            <span class="tag">REST-API</span>
+                            <span class="tag">CSS3</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="contact" class="contact">
+    <!-- Section: Contact -->
+<section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
             <p class="contact-subtitle">Have a project in mind? Want to collaborate? Let's talk!</p>
-            
             <div class="contact-grid">
                 <div class="contact-method">
                     <i class="fas fa-envelope"></i>
@@ -291,7 +295,6 @@
                     <p>Pasay City, Philippines</p>
                 </div>
             </div>
-
             <div class="social-section">
                 <h3>I'm Here</h3>
                 <div class="social-links">
@@ -304,18 +307,19 @@
                     <a href="https://facebook.com/corei9.9000k" class="social-link" title="Facebook" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="tumolva.pdf" class="social-link" title="CV" aria-label="CV" rel="noopener noreferrer" target="_blank">
+                    <a href="tumolva.pdf" class="social-link" title="Download CV" aria-label="Download CV" rel="noopener noreferrer" target="_blank" download>
                         <i class="fas fa-file-pdf"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <p>&copy; 2026 TUMOLVA. All rights reserved. | Crafted with <i class="fas fa-code"></i> and <i class="fas fa-coffee"></i></p>
+    </main>
+    <!-- Section: Footer -->
+<footer class="footer">
+        <p>&copy; 2026 Mark Jeferson D. Tumolva. All rights reserved. | Crafted with <i class="fas fa-code"></i> and <i class="fas fa-coffee"></i></p>
     </footer>
-
+    <!-- Section: Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -323,8 +327,8 @@
       "name": "Mark Jeferson D. Tumolva",
       "url": "https://tumolva.vercel.app",
       "image": "https://mirai101.github.com/MJ/images/dd.jpg",
-      "description": "Aspiring Software Developer",
-      "jobTitle": "Aspiring Software Developer",
+      "description": "Full Stack Developer",
+      "jobTitle": "Full Stack Developer",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Pasay City",
@@ -339,50 +343,10 @@
       ]
     }
     </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://tumolva.vercel.app"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "About",
-          "item": "https://tumolva.vercel.app#about"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Skills",
-          "item": "https://tumolva.vercel.app#skills"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Projects",
-          "item": "https://tumolva.vercel.app#projects"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "Contact",
-          "item": "https://tumolva.vercel.app#contact"
-        }
-      ]
-    }
-    </script>
-
     <button id="backToTop" class="back-to-top" title="Back to Top">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <script src="js/script.js"></script>
+    <!-- Section: Scripts -->
+    <script src="script/script.js"></script>
 </body>
 </html>

@@ -521,7 +521,14 @@ const throttledScroll = throttle(function() {
 window.addEventListener('scroll', throttledScroll);
 
 window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
+    const loader = document.getElementById('pageLoader');
+
+    window.setTimeout(function() {
+        document.body.classList.add('loaded');
+        if (loader) {
+            loader.classList.add('hidden');
+        }
+    }, 700);
 });
 
 if (window.matchMedia('(hover: none)').matches) {

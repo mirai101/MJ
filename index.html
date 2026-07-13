@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Section: Document Head -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Full Stack Developer Portfolio. Transforming ideas into functional applications through clean code, thoughtful design, and continuous learning.">
@@ -25,14 +24,16 @@
     <script src="script/early.js"></script>
 </head>
 <body>
-    <!-- Section: Body -->
+    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="Loading page">
+        <div class="loader-ring"></div>
+        <p>Loading portfolio...</p>
+    </div>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="grid-animation"></div>
-    <!-- Section: Navigation -->
 <header class="site-header">
         <nav class="navbar" role="navigation" aria-label="Primary navigation">
             <div class="nav-container">
-                <a href="https://tumolva.vercel.app" class="logo"><span class="logo-bracket">MJ </span>D.<span class="logo-bracket">Tumolva</span></a>
+                <a href="https://tumolva.vercel.app" class="logo"><span class="logo-bracket"></span>MJ<span class="logo-bracket"></span></a>
                 <div class="nav-right">
                     <ul class="nav-links" id="navLinks">
                         <li><a href="#about" class="nav-link">About</a></li>
@@ -54,12 +55,11 @@
         </nav>
     </header>
     <main>
-    <!-- Section: Hero -->
 <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-title">
-                <p class="hero-greeting">Hi, I'm Mark Jeferson D. Tumolva</p>
-                <h1>Full Stack Developer</h1>
+                <p class="hero-greeting">Hi, I'm</p>
+                <h1>Mark Jeferson D. Tumolva</h1>
                 <div class="role-tags">
                     <span class="role-tag dev-tag">Full Stack Developer</span>
                     <span class="role-tag va-tag">Pentester</span>
@@ -68,10 +68,10 @@
             </div>
                 <p class="hero-subtitle">I am a full stack developer with a strong track record of creating efficient, user-focused, and reliable digital solutions. I transform ideas into functional applications through clean code, thoughtful design, and continuous delivery.</p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-code"></i> View Work
+                <a href="https://drive.google.com/file/d/1mjgP1ZTemuK9PBEdZ-5KdCBUyzEUhIkn/view?usp=sharing" class="btn btn-primary">
+                    <i class="fas fa-file-pdf"></i> My Resume
                 </a>
-                <a href="#contact" class="btn btn-secondary">
+                <a href="mailto:mark.14tumolva@gmail.com" class="btn btn-secondary">
                     <i class="fas fa-envelope"></i> Get In Touch
                 </a>
             </div>
@@ -80,7 +80,6 @@
             </div>
         </div>
     </section>
-    <!-- Section: About -->
 <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
@@ -95,11 +94,6 @@
                             <p>Writing clean, maintainable, and scalable code following industry best practices</p>
                         </div>
                         <div class="expertise-item">
-                            <i class="fas fa-database"></i>
-                            <h3>Database Management</h3>
-                            <p>Designing and integrating secure, efficient database solutions</p>
-                        </div>
-                        <div class="expertise-item">
                             <i class="fas fa-shield-alt"></i>
                             <h3>Security & Pentesting</h3>
                             <p>Conducting vulnerability assessments, penetration testing, and secure-hardening recommendations</p>
@@ -110,13 +104,10 @@
                             <p>Designing automation pipelines using AI APIs, Python automation, and lightweight ML models</p>
                         </div>
                     </div>
-                    <p><strong>Professional Values:</strong> I value integrity, collaboration, accountability, and continuous learning, and I strive to deliver solutions that meet both technical and user requirements.</p>
-                    <p><strong>Career Objective:</strong> I am focused on contributing to impactful full stack projects, improving system quality, and delivering features that drive business outcomes. I aim to grow as a full stack developer while maintaining a strong commitment to craftsmanship, reliability, and team success.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Section: Skills -->
 <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Skills & Technologies</h2>
@@ -124,56 +115,73 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Programming Languages</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                        <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> PHP</span>
+                        <span class="skill-tag"><i class="fab fa-rust"></i> Rust</span>
+                        <span class="skill-tag"><i class="fab fa-go"></i> Go-Lang</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-globe"></i> Web Technologies</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">React</span>
+                        <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="skill-tag"><i class="fas fa-palette"></i> Bootstrap</span>
+                        <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+                        <span class="skill-tag"><i class="fab fa-angular"></i> Angular</span>
+                        <span class="skill-tag"><i class="fab fa-vuejs"></i> Vue.js</span>
+                        <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Database</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="skill-tag"><i class="fas fa-database"></i> SQLite</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">Visual Studio Code</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag"><i class="fab fa-github"></i> Git & GitHub</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> Visual Studio Code</span>
+                        <span class="skill-tag"><i class="fas fa-pencil-ruler"></i> Figma</span>
+                        <span class="skill-tag"><i class="fas fa-file-alt"></i> Microsoft Office</span>
+                        <span class="skill-tag"><i class="fas fa-palette"></i> Canva</span>
+                        <span class="skill-tag"><i class="fab fa-gitkraken"></i> Gitkraken</span>
+                        <span class="skill-tag"><i class="fab fa-bug"></i> Ghidra</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-user-secret"></i> Security & Automation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Penetration Testing</span>
-                        <span class="skill-tag">Vulnerability Assessment</span>
-                        <span class="skill-tag">Nmap</span>
-                        <span class="skill-tag">Burp Suite</span>
-                        <span class="skill-tag">Metasploit</span>
-                        <span class="skill-tag">Python Automation</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">ChatGPT API</span>
-                        <span class="skill-tag">Lightweight ML</span>
+                        <span class="skill-tag"><i class="fas fa-shield-alt"></i> Penetration Testing</span>
+                        <span class="skill-tag"><i class="fas fa-bug"></i> Vulnerability Assessment</span>
+                        <span class="skill-tag"><i class="fas fa-terminal"></i> Nmap</span>
+                        <span class="skill-tag"><i class="fas fa-lock"></i> Burp Suite</span>
+                        <span class="skill-tag"><i class="fas fa-bolt"></i> Metasploit</span>
+                        <span class="skill-tag"><i class="fas fa-robot"></i> Python Automation</span>
+                        <span class="skill-tag"><i class="fas fa-cogs"></i> Selenium</span>
+                        <span class="skill-tag"><i class="fas fa-comments"></i> Moonblast</span>
+                        <span class="skill-tag"><i class="fas fa-brain"></i> Ollama</span>
                     </div>
                 </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Deployment</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="skill-tag"><i class="fas fa-server"></i> Nginx</span>
+                        <span class="skill-tag"><i class="fas fa-server"></i> Apache</span>
+                        <span class="skill-tag"><i class="fas fa-cloud"></i> Vercel</span>
+                        <span class="skill-tag"><i class="fas fa-cloud"></i> Netlify</span>
             </div>
         </div>
     </section>
-    <!-- Section: Featured Projects -->
 <section id="projects" class="work">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
@@ -267,7 +275,6 @@
             </div>
         </div>
     </section>
-    <!-- Section: Contact -->
 <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
@@ -307,7 +314,7 @@
                     <a href="https://facebook.com/corei9.9000k" class="social-link" title="Facebook" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="tumolva.pdf" class="social-link" title="Download CV" aria-label="Download CV" rel="noopener noreferrer" target="_blank" download>
+                    <a href="https://drive.google.com/file/d/1mjgP1ZTemuK9PBEdZ-5KdCBUyzEUhIkn/view?usp=sharing" class="social-link" title="Download CV" aria-label="Download CV" rel="noopener noreferrer" target="_blank" download>
                         <i class="fas fa-file-pdf"></i>
                     </a>
                 </div>
@@ -315,11 +322,9 @@
         </div>
     </section>
     </main>
-    <!-- Section: Footer -->
 <footer class="footer">
         <p>&copy; 2026 Mark Jeferson D. Tumolva. All rights reserved. | Crafted with <i class="fas fa-code"></i> and <i class="fas fa-coffee"></i></p>
     </footer>
-    <!-- Section: Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -346,7 +351,6 @@
     <button id="backToTop" class="back-to-top" title="Back to Top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <!-- Section: Scripts -->
     <script src="js/script.js"></script>
 </body>
 </html>
